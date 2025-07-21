@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bin Makawi — About</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased">
+<header class="bg-white shadow sticky top-0 z-50">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <a href="index.html" class="text-2xl font-bold text-amber-700">Bin Makawi</a>
+    <button aria-label="Open Menu" id="menu-btn" class="md:hidden focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <nav id="menu" class="hidden md:flex md:space-x-8 text-gray-700">
+      <a href="index.html" class="hover:text-amber-700">Home</a>
+      <a href="about.html" class="hover:text-amber-700">About</a>
+      <a href="services.html" class="hover:text-amber-700">Services</a>
+      <a href="gallery.html" class="hover:text-amber-700">Gallery</a>
+      <a href="contact.html" class="hover:text-amber-700">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="container mx-auto py-16 px-4 max-w-4xl">
+  <h1 class="text-3xl font-bold mb-6 text-amber-700">Our Story</h1>
+  <p class="mb-4 leading-relaxed">Founded in 1999 in the heart of Nablus, Bin Makawi began as a small family roastery dedicated to preserving traditional Palestinian coffee culture. What started with a single hand‑crank roaster has grown into a modern craft facility, yet our commitment to freshness and flavor remains unchanged.</p>
+  <p class="mb-4 leading-relaxed">Every batch is roasted on‑site, ground to order, and shipped the same day. We source ethically, support local farmers, and celebrate the rich heritage of Levantine spices and teas.</p>
+  <div class="grid md:grid-cols-3 gap-8 mt-12">
+    <div class="text-center p-6 border rounded-lg">
+      <h2 class="text-xl font-semibold mb-2">Family Business</h2>
+      <p>Three generations united by coffee.</p>
+    </div>
+    <div class="text-center p-6 border rounded-lg">
+      <h2 class="text-xl font-semibold mb-2">Community First</h2>
+      <p>Supporting jobs and culture in Old Nablus.</p>
+    </div>
+    <div class="text-center p-6 border rounded-lg">
+      <h2 class="text-xl font-semibold mb-2">Global Reach</h2>
+      <p>Shipping to cafés and homes worldwide.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-gray-100">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center p-6 text-sm">
+    <span>&copy; 1999‑2025 Bin Makawi, Nablus</span>
+    <span>Made with Tailwind CSS</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-btn').addEventListener('click',()=>{document.getElementById('menu').classList.toggle('hidden');});
+</script>
+</body>
+</html>
