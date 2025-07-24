@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Challenge8</title>
+</head>
+<body>
+<script>
+function toUpperCaseArray(arr) {
+  let result = []; 
+
+  for (let i = 0; i < arr.length; i++) {
+    let upper = arr[i].toUpperCase();
+    result.push(upper);
+  }
+  return result;
+}
+let names = ["mohammad", "laila", "ahmad"];
+let upperNames = toUpperCaseArray(names);
+console.log(upperNames); 
+</script>
+</body>
+</html>

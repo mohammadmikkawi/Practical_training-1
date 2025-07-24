@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Challenge9</title>
+</head>
+
+<body>
+    <script>
+function arrayofdoublenumbers(array=[]){
+    let newArray = [];
+    for(let i = 0; i < array.length; i++){
+        if(typeof array[i] === 'number'){
+            newArray.push(array[i] * 2);
+        }
+    }
+    return newArray;
+}
+console.log(arrayofdoublenumbers([1, 2, 3, 4]));
+</script>
+</body>
+</html>
