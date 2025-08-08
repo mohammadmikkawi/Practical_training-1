@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Challenge 13 - Promise Example</title>
+</head>
+<body>
+  <h1>Promise JSON Example</h1>
+  <pre id="output"></pre>
+
+  <script>
+    function getData() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const data = { message: "Hello from Promise!", status: "success" };
+          resolve(data);
+        }, 1000);
+      });
+    }
+
+    getData().then(result => {
+      document.getElementById("output").textContent = JSON.stringify(result, null, 2);
+    });
+  </script>
+</body>
+</html>

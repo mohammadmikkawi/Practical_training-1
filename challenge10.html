@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch JSON Example</title>
+</head>
+<body>
+
+  <h2>To-Do List</h2>
+  <ul id="todo-list">
+
+  </ul>
+
+  <script>
+
+    const apiUrl = 'https://jsonplaceholder.typicode.com/todos?_limit=5';
+
+
+    fetch(apiUrl)
+      .then(response => response.json()) 
+      .then(data => {
+        const list  =document.getElementById('todo-list');
+
+        data.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = `${item.title} - ${item.completed ? '✅' : '❌'}`;
+          list.appendChild(li);
+        });
+      })
+      .catch(error => {
+        console.error('ERRor', error);
+      });
+  </script>
+
+</body>
+</html>

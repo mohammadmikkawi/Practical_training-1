@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Challenge 15 - Nested Object to JSON</title>
+</head>
+<body>
+  <h1>Nested Object to JSON</h1>
+  <pre id="jsonOutput"></pre>
+
+  <script>
+    const user = {
+      name: "John Doe",
+      email: "john@example.com",
+      address: {
+        city: "New York",
+        zip: "10001"
+      },
+      contact: {
+        phone: "1234567890"
+      }
+    };
+
+    const jsonString = JSON.stringify(user, null, 2);
+    document.getElementById("jsonOutput").textContent = jsonString;
+  </script>
+</body>
+</html>

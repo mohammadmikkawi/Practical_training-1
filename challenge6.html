@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Challenge 6</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+
+function validateJson(jsonString) {
+    try {
+        JSON.parse(jsonString);
+        console.log("Valid JSON");
+    } catch (error) {
+        console.error("Invalid JSON:", error);
+    }
+}
+
+validateJson('{"name": "efef", "age": 30, "city": "nablus"}'); 
+validateJson('{"name": "efe", "age": 30, "city": "Ne"'); // Invalid JSON
+  </script>
+</body>
+</html>

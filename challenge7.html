@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>  
+
+
+<head>
+    <title>Challenge 7</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+const api="https://jsonplaceholder.typicode.com/users";
+
+fetch(api)
+    .then(response => response.json())
+    .then(data => {
+        const user = data[0]; 
+        console.log(user.name);
+        console.log(user.email);
+        console.log(user.phone);
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>          
+
+<head>
+    <title>Challenge 8</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+function fetchDataWithXHR() {
+  var xhr = new XMLHttpRequest();
+
+  xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true);
+
+  xhr.onreadystatechange = function () {
+  
+    if (xhr.readyState === 4 && xhr.status === 200) {
+
+      var responseData = JSON.parse(xhr.responseText);
+
+  
+      console.log(responseData);
+    }
+  };
+
+
+  xhr.send();
+}
+
+fetchDataWithXHR();
+
+
+</script>
+</body>
+</html>

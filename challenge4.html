@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Challenge 4</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+const productJson={
+"name":"Laptop",
+"price":1200,
+};
+const product=  JSON.parse(JSON.stringify(productJson));
+product.price=2500; // Update the price
+console.log(product.name);
+console.log(product.price);
+  </script>
+
+</body>
+</html>

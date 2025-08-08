@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Challenge 19 - Callback with XHR</title>
+</head>
+<body>
+  <h1>Asynchronous Data with Callback</h1>
+  <pre id="data"></pre>
+
+  <script>
+    function getData(callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          callback(JSON.parse(xhr.responseText));
+        }
+      };
+      xhr.send();
+    }
+
+    getData(function(response) {
+      document.getElementById("data").textContent = JSON.stringify(response, null, 2);
+    });
+  </script>
+</body>
+</html>

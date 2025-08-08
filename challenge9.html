@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create JSON from Form</title>
+</head>
+<body>
+
+  <h2>Contact Form</h2>
+  <form id="contact-form">
+    <label>
+      Name:
+      <input type="text" id="name" required>
+    </label><br><br>
+
+    <label>
+      Email:
+      <input type="email" id="email" required>
+    </label><br><br>
+
+    <label>
+      Message:
+      <textarea id="message" required></textarea>
+    </label><br><br>
+
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+
+    const form = document.getElementById('contact-form');
+
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      
+      const name = document.getElementById('name').value;
+const email =document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const formData = {
+        name: name,
+        email: email,
+        message: message
+      };
+
+
+      const jsonString = JSON.stringify(formData);
+
+
+      console.log(jsonString);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Challenge 17 - Fetch with Query Params</title>
+</head>
+<body>
+  <h1>Fetch API with Query Parameters</h1>
+  <pre id="output"></pre>
+
+  <script>
+    fetch("https://jsonplaceholder.typicode.com/posts?id=1")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+      });
+  </script>
+</body>
+</html>
