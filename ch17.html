@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 17 - Class with Methods</title>
+</head>
+<body>
+  <h1>Challenge 17: Class with Methods</h1>
+  <p>Create a Car class with a start() method.</p>
+
+  <script>
+    class Car {
+      constructor(make, model) {
+        this.make = make;
+        this.model = model;
+      }
+      start() {
+        console.log('Car started');
+      }
+    }
+
+    const myCar = new Car('Toyota', 'Corolla');
+    myCar.start();
+  </script>
+</body>
+</html>

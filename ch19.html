@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 19 - Encapsulation Example</title>
+</head>
+<body>
+  <h1>Challenge 19: Encapsulation Example</h1>
+  <p>BankAccount class with private balance and public methods.</p>
+
+  <script>
+    class BankAccount {
+      #balance;
+
+      constructor(initialBalance) {
+        this.#balance = initialBalance;
+      }
+
+      deposit(amount) {
+        if (amount > 0) this.#balance += amount;
+      }
+
+      withdraw(amount) {
+        if (amount > 0 && amount <= this.#balance) {
+          this.#balance -= amount;
+        } else {
+          console.log('Insufficient funds');
+        }
+      }
+
+      getBalance() {
+        return this.#balance;
+      }
+    }
+
+    const account = new BankAccount(1000);
+    account.deposit(500);
+    account.withdraw(200);
+    console.log('Balance:', account.getBalance()); // 1300
+  </script>
+</body>
+</html>

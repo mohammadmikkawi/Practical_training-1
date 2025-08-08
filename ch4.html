@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 4 - Promise with finally()</title>
+</head>
+<body>
+    <h1>Challenge 4: Promise with finally()</h1>
+    <p>Write a promise that resolves successfully, and use .finally() to log a message after the promise is settled.</p>
+
+    <script>
+        const finalPromise = Promise.resolve("Operation successful");
+
+        finalPromise
+            .then(message => console.log(message))
+            .catch(error => console.error(error))
+            .finally(() => console.log("Promise is settled"));
+    </script>
+</body>
+</html>

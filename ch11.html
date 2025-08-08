@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 11 - Callback Example</title>
+</head>
+<body>
+  <h1>Challenge 11: Callback Example</h1>
+  <p>Simulate reading data from a database and call a callback with the data.</p>
+
+  <script>
+    function getData(callback) {
+      setTimeout(() => {
+        const data = { id: 1, name: 'John' };
+        callback(data);
+      }, 1000);
+    }
+
+    getData(function(data) {
+      console.log('Data received:', data);
+    });
+  </script>
+</body>
+</html>

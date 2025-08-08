@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 12 - Nested Callbacks</title>
+</head>
+<body>
+  <h1>Challenge 12: Nested Callbacks</h1>
+  <p>Fetch data and then process it using nested callbacks.</p>
+
+  <script>
+    function fetchData(callback) {
+      setTimeout(() => {
+        const users = ['Alice', 'Bob', 'Charlie'];
+        callback(users);
+      }, 1000);
+    }
+
+    function processData(users, callback) {
+      setTimeout(() => {
+        const processed = users.map(u => u.toUpperCase());
+        callback(processed);
+      }, 1000);
+    }
+
+    fetchData(function(users) {
+      console.log('Users:', users);
+      processData(users, function(processedUsers) {
+        console.log('Processed Users:', processedUsers);
+      });
+    });
+  </script>
+</body>
+</html>

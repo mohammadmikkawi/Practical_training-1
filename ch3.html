@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 3 - Chain Multiple Promises</title>
+</head>
+<body>
+    <h1>Challenge 3: Chain Multiple Promises</h1>
+    <p>Create two promises that resolve with different values. Chain them to log both results.</p>
+
+    <script>
+        const firstPromise = Promise.resolve("First result");
+        const secondPromise = Promise.resolve("Second result");
+
+        firstPromise
+            .then(result1 => {
+                console.log(result1);
+                return secondPromise;
+            })
+            .then(result2 => console.log(result2));
+    </script>
+</body>
+</html>

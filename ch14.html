@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 14 - Callbacks with setTimeout</title>
+</head>
+<body>
+  <h1>Challenge 14: Using Callbacks with setTimeout</h1>
+  <p>Simulate async operation with setTimeout and callback.</p>
+
+  <script>
+    function doAsyncTask(callback) {
+      setTimeout(() => {
+        callback('Task completed');
+      }, 1000);
+    }
+
+    doAsyncTask(function(message) {
+      console.log(message);
+    });
+  </script>
+</body>
+</html>

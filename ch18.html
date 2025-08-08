@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 18 - Inheritance in OOP</title>
+</head>
+<body>
+  <h1>Challenge 18: Inheritance in OOP</h1>
+  <p>Create Animal and Dog classes with speak() method overridden.</p>
+
+  <script>
+    class Animal {
+      speak() {
+        console.log('Animal speaks');
+      }
+    }
+
+    class Dog extends Animal {
+      speak() {
+        console.log('Dog barks');
+      }
+    }
+
+    const myDog = new Dog();
+    myDog.speak(); // Dog barks
+  </script>
+</body>
+</html>

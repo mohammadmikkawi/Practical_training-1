@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 13 - Callback Hell</title>
+</head>
+<body>
+  <h1>Challenge 13: Callback Hell</h1>
+  <p>Three nested async functions using callbacks, then refactor to Promises.</p>
+
+  <script>
+    // Callback Hell example
+    function first(callback) {
+      setTimeout(() => {
+        console.log('First');
+        callback();
+      }, 500);
+    }
+
+    function second(callback) {
+      setTimeout(() => {
+        console.log('Second');
+        callback();
+      }, 500);
+    }
+
+    function third(callback) {
+      setTimeout(() => {
+        console.log('Third');
+        callback();
+      }, 500);
+    }
+
+    // Nested callbacks (callback hell)
+    first(() => {
+      second(() => {
+        third(() => {
+          console.log('Done with callback hell');
+        });
+      });
+    });
+
+    // Refactored with Promises to avoid callback hell
+    function firstPromise() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          console.log('First');
+          resolve();
+        }, 500);
+      });
+    }
+    function secondPromise() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          console.log('Second');
+          resolve();
+        }, 500);
+      });
+    }
+    function thirdPromise() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          console.log('Third');
+          resolve();
+        }, 500);
+      });
+    }
+
+    firstPromise()
+      .then(secondPromise)
+      .then(thirdPromise)
+      .then(() => console.log('Done with Promises'));
+  </script>
+</body>
+</html>

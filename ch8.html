@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 8 - Convert Callback to Async/Await</title>
+</head>
+<body>
+  <h1>Challenge 8: Convert Callback to Async/Await</h1>
+  <p>Simulate async callback using setTimeout, then convert to async/await.</p>
+
+  <script>
+    // Original callback function
+    function delayCallback(callback) {
+      setTimeout(() => {
+        callback("Done");
+      }, 1000);
+    }
+
+    // Converted to Promise-returning function
+    function delayPromise() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve("Done");
+        }, 1000);
+      });
+    }
+
+    // Async function using await
+    async function run() {
+      const result = await delayPromise();
+      console.log(result);
+    }
+
+    run();
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 15 - Handle Multiple Callbacks</title>
+</head>
+<body>
+  <h1>Challenge 15: Handle Multiple Callbacks</h1>
+  <p>Execute multiple callbacks sequentially and log after each.</p>
+
+  <script>
+    function executeCallbacks(callbacks) {
+      let index = 0;
+
+      function next() {
+        if (index < callbacks.length) {
+          callbacks[index++](() => {
+            console.log(`Callback ${index} done`);
+            next();
+          });
+        }
+      }
+
+      next();
+    }
+
+    const callbacks = [
+      done => setTimeout(() => done(), 500),
+      done => setTimeout(() => done(), 700),
+      done => setTimeout(() => done(), 300),
+    ];
+
+    executeCallbacks(callbacks);
+  </script>
+</body>
+</html>

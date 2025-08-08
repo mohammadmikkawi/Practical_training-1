@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Challenge 9 - Parallel Async Calls</title>
+</head>
+<body>
+  <h1>Challenge 9: Parallel Async Calls with Promise.all()</h1>
+  <p>Run multiple async calls in parallel and log results.</p>
+
+  <script>
+    async function fetchMultiple() {
+      const urls = [
+        'https://jsonplaceholder.typicode.com/posts/1',
+        'https://jsonplaceholder.typicode.com/users/1'
+      ];
+      const [post, user] = await Promise.all(urls.map(url => fetch(url).then(res => res.json())));
+      console.log('Post:', post);
+      console.log('User:', user);
+    }
+
+    fetchMultiple();
+  </script>
+</body>
+</html>
