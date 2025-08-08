@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ES6 Challenge 7 - Inheritance</title>
+</head>
+<body>
+  <h1>Challenge 7: Inheritance in JavaScript</h1>
+  <script>
+    class Vehicle {
+      constructor(make, model) {
+        this.make = make;
+        this.model = model;
+      }
+      drive() {
+        console.log(`${this.make} ${this.model} is driving.`);
+      }
+    }
+
+    class Car extends Vehicle {
+      honk() {
+        console.log("Honk!");
+      }
+    }
+
+    const myCar = new Car("Toyota", "bmw");
+    myCar.drive();
+    myCar.honk();
+  </script>
+</body>
+</html>
