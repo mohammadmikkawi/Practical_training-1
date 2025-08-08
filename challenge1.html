@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Challenge</title>
+</head>
+<body>
+  <button onclick="changeText()">Click Me</button>
+  <button onclick="changeColor()">Make Red</button>
+  <div id="textArea">Original Text</div>
+
+  <script>
+    function changeText() {
+      document.getElementById("textArea").innerText = "Hello, JavaScript!";
+    }
+
+    function changeColor() {
+      document.getElementById("textArea").style.color = "red";
+    }
+  </script>
+</body>
+</html>
