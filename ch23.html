@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Reeport Example</title>
+</head>
+<body>
+  <h2>Reexporting modules</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const circle = `export function c(){ return 'circle'; }`;
+    const square = `export function s(){ return 'square'; }`;
+    const circleURL = URL.createObjectURL(new Blob([circle], { type: 'text/javascript' }));
+    const squareURL = URL.createObjectURL(new Blob([square], { type: 'text/javascript' }));
+    const reExports = `export * from '${circleURL}'; export * from '${squareURL}';`;
+    const reURL = URL.createObjectURL(new Blob([reExports], { type: 'text/javascript' }));
+    import(reURL).then(m => {
+      document.getElementById('out').textContent = m.c() + ' & ' + m.s();
+    });
+  </script>
+</body>
+</html>

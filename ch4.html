@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>delayedGreeting</title>
+</head>
+<body>
+  <h2>delayedGreeting(message, delay)</h2>
+  <button id="go">Show greeting after 1.5s</button>
+  <p id="out"></p>
+
+  <script>
+    function delayedGreeting(message, delay) {
+      return function()
+       {
+        setTimeout(function()
+         {
+          document.getElementById('out').textContent = message;
+        }, delay);
+      };
+    }
+    const say = delayedGreeting('Hello from closure!', 1500);
+    document.getElementById('go').addEventListener('click', say);
+  </script>
+</body>
+</html>

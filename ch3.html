@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> createAdder</title>
+</head>
+<body>
+  <h2> createAdder(x)</h2>
+  <pre id="out"></pre>
+
+  <script>
+    function createAdder(x)
+     {
+      return function(y) 
+      {
+        return x + y;
+      };
+    }
+    const addFive = createAdder(5);
+    document.getElementById('out').textContent = "5 + 7 = " + addFive(7);
+  </script>
+</body>
+</html>

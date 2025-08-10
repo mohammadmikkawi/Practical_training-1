@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Utils Module</title>
+</head>
+<body>
+  <h2>utils module</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const code = `
+      export function sum(a,b){ return a + b; }
+      export function multiply(a,b){ return a * b; }
+      export function divide(a,b){ return a / b; }
+    `;
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    import(url).then(u => {
+      document.getElementById('out').textContent = [
+        'sum(2,3)=' + u.sum(2,3),
+        'multiply(4,5)=' + u.multiply(4,5),
+        'divide(10,2)=' + u.divide(10,2)
+      ].join('\n');
+    });
+  </script>
+</body>
+</html>

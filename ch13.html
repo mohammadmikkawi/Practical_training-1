@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Default Greet</title>
+</head>
+<body>
+  <h2>Default Export greet()</h2>
+  <p id="out"></p>
+
+  <script type="module">
+    const code = `export default function greet(name){ return 'Hello, ' + name + '!'; }`;
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    import(url).then(m => {
+      document.getElementById('out').textContent = m.default('User');
+    });
+  </script>
+</body>
+</html>

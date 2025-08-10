@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PI Module</title>
+</head>
+<body>
+  <h2>Module with constant PI</h2>
+  <p id="out"></p>
+
+  <script type="module">
+    const code = `export const PI = 3.141592653589793;`;
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    import(url).then(m =>
+     {
+      const r = 5;
+      document.getElementById('out').textContent = 'circumference for r=5 -> ' + (2 * m.PI * r).toFixed(4);
+    });
+  </script>
+</body>
+</html>

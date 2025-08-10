@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> Module Add</title>
+</head>
+<body>
+  <h2>Simple Module (add)</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const code = `export function add(a,b){ return a + b; }`;
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    import(url).then(m => 
+    {
+      document.getElementById('out').textContent = '2 + 3 = ' + m.add(2,3);
+    });
+  </script>
+</body>
+</html>

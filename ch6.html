@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fibonacci Memoization</title>
+</head>
+<body>
+  <h2>Fibonacci with memoization</h2>
+  <input id="n" placeholder="n">
+  <button id="calc">Calculate</button>
+  <pre id="out"></pre>
+
+  <script>
+    function fibMemo() {
+      const cache = {0:0, 1:1};
+      function fib(n) {
+        if (cache[n] !== undefined) return cache[n];
+        cache[n] = fib(n-1) + fib(n-2);
+        return cache[n];
+      }
+      return fib;
+    }
+    const fib = fibMemo();
+    document.getElementById('calc').addEventListener('click', () => {
+      const n = Math.max(0, parseInt(document.getElementById('n').value || 0));
+      document.getElementById('out').textContent = 'fib(' + n + ') = ' + fib(n);
+    });
+  </script>
+</body>
+</html>

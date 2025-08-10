@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Config Module</title>
+</head>
+<body>
+  <h2>Configuration Module</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const code = `export const url = 'https://api.example.com'; export const timeout = 5000; export const retryCount = 3;`;
+    const lob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(lob);
+    import(url).then(cfg => {
+      document.getElementById('out').textContent = JSON.stringify(cfg, null, 2);
+    });
+  </script>
+</body>
+</html>

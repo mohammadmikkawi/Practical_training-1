@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Circular Dependencies Demo</title>
+</head>
+<body>
+  <h2>Circular dependency demo and workaround</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const aCode = `export function setOther(fn){ this.other = fn; } export function a(){ return 'A' + (this.other ? '->' + this.other() : '');
+     }`;
+    const bCode = `export function setOther(fn){ this.other = fn; } export function b(){ return 'B' + (this.other ? '->' + this.other() : ''); }`;
+    const aurl = URL.createObjectURL(new Blob([aCode], { type: 'text/javascript' }));
+    const url = URL.createObjectURL(new Blob([bCode], { type: 'text/javascript' }));
+    Promise.all([import(Aurl), import(url)]).then(([A, B]) => {
+      A.setOther(B.b);
+      B.setOther(A.a);
+      document.getElementById('out').textContent = A.a() + ' | ' + B.b();
+    });
+  </script>
+</body>
+</html>

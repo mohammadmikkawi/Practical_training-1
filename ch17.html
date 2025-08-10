@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shapes Module</title>
+</head>
+<body>
+  <h2>Named exports: Circle & Square</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const code = `
+      export class Circle { constructor(r) { this.r = r; } area() { return Math.PI * this.r * this.r; } }
+      export class Square { constructor(a) { this.a = a; } area() { return this.a * this.a; } }
+    `;
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    import(url).then(m => {
+      const c = new m.Circle(3), s = new m.Square(4);
+      document.getElementById('out').textContent = 'Circle area: ' + c.area().toFixed(2) + '\nSquare area: ' + s.area();
+    });
+  </script>
+</body>
+</html>

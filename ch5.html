@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Store Values Closure</title>
+</head>
+<body>
+  <h2>Closure that stores values</h2>
+  <input id="val" placeholder="value">
+  <button id="add">Add</button>
+  <pre id="list">[]</pre>
+
+  <script>
+    function makeListKeeper() {
+      const items = [];
+      return {
+        add: function(x) { items.push(x); return items.slice(); },
+        getAll: function() 
+        { return items.slice(); 
+          
+        }
+      };
+    }
+    const keeper = makeListKeeper();
+    document.getElementById('add').addEventListener('click', () => {
+      const v = document.getElementById('val').value || "(empty)";
+      document.getElementById('list').textContent = JSON.stringify(keeper.add(v), null, 2);
+    });
+  </script>
+</body>
+</html>

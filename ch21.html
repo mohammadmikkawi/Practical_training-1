@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>21 - Encapsulated Counter Module</title>
+</head>
+<body>
+  <h2>21 - Module encapsulating a counter</h2>
+  <button id="inc">Increment</button>
+  <p id="val">0</p>
+
+  <script type="module">
+    const code = `let cnt = 0; export function inc(){ cnt++; return cnt; } export function get(){ return cnt; }`;
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    import(url).then(m => {
+      document.getElementById('inc').addEventListener('click', () => {
+        document.getElementById('val').textContent = m.inc();
+      });
+    });
+  </script>
+</body>
+</html>
+ 

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lazy Loading Module</title>
+</head>
+<body>
+  <h2>Lazy loading a module</h2>
+  <button id="load">Load module</button>
+  <pre id="out"></pre>
+
+  <script>
+    document.getElementById('load').addEventListener('click', async () => {
+      const code = `export function fancy(){ return 'I was lazy loaded'; }`;
+      const url = URL.createObjectURL(new Blob([code], { type: 'text/javascript' }));
+      const m = await import(url);
+      document.getElementById('out').textContent = m.fancy();
+    });
+  </script>
+</body>
+</html>

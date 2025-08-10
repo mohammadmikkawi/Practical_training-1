@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Calclator Module</title>
+</head>
+<body>
+  <h2>Simple Calculator Module</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const code = `
+      export function add(a,b){ return a + b; }
+      export function subtract(a,b){ return a - b; }
+      export function multiply(a,b){ return a * b; }
+      export function divide(a,b){ return a / b; }
+    `;
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    import(url).then(m => {
+      document.getElementById('out').textContent = [
+        'add: ' + m.add(1,2),
+        'subtract: ' + m.subtract(5,3),
+        'multiply: ' + m.multiply(4,6),
+        'divide: ' + m.divide(9,3)
+      ].join('\n');
+    });
+  </script>
+</body>
+</html>

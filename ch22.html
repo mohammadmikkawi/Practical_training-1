@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CommonJS vs ESM</title>
+</head>
+<body>
+  <h2 CommonJS vs ES Modules</h2>
+  <pre>
+CommonJS (Node):
+  module.exports = { add: (a,b) => a + b }
+
+ES Modules (Browser / modern):
+  export function add(a,b){ return a + b; }
+  export default function foo(){ ... }
+  import { add } from './mod.js';
+  import foo from './mod.js';
+  </pre>
+</body>
+</html>

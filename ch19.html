@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Split Code Demo</title>
+</head>
+<body>
+  <h2>Split code into modules (demo)</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const codeA = `export function partA(){ return 'A'; }`;
+    const codeB = `export function partB(){ return 'B'; }`;
+    const urlA = URL.createObjectURL(new Blob([codeA], { type: 'text/javascript' }));
+    const urlB = URL.createObjectURL(new Blob([codeB], { type: 'text/javascript' }));
+    Promise.all([import(urlA), import(urlB)]).then(([A, B]) => {
+      document.getElementById('out').textContent = 'parts: ' + A.partA() + ' + ' + B.partB();
+    });
+  </script>
+</body>
+</html>

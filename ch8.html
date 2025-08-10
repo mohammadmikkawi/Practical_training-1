@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>createPerson</title>
+</head>
+<body>
+  <h2>createPerson(name, age)</h2>
+  <div id="info"></div>
+  <button id="change">Change to Sami, 26</button>
+
+  <script>
+    function createPerson(name, age) {
+      let _name = name;
+      let _age = age;
+      return {
+        getName: () => _name,
+        getAge: () => _age,
+        setName: (n) => { _name = n; },
+        setAge: (a) => { _age = a; }
+      };
+    }
+    const p = createPerson('Ali', 25);
+    function show() {
+      document.getElementById('info').textContent = p.getName() + ' — ' + p.getAge();
+    }
+    show();
+    document.getElementById('change').addEventListener('click', () => {
+      p.setName('Sami');
+      p.setAge(26);
+      show();
+    });
+  </script>
+</body>
+</html>

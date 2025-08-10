@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Authenticate Closure</title>
+</head>
+<body>
+  <h2>authenticate(password)</h2>
+  <input id="pw" placeholder="password">
+  <button id="check">Check</button>
+  <p id="res"></p>
+
+  <script>
+    function authenticate(password) {
+      return function(input) {
+        return input === password;
+      };
+    }
+    const auth = authenticate('secret123');
+    document.getElementById('check').addEventListener('click', () => {
+      const ok = auth(document.getElementById('pw').value);
+      document.getElementById('res').textContent = ok ? 'OK' : 'Wrong';
+    });
+  </script>
+</body>
+</html>

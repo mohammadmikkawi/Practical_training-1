@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Async Function in Module</title>
+</head>
+<body>
+  <h2>Async function in module (simulated fetch)</h2>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const code = `
+      export async function getData() {
+        return new Promise(resolve => setTimeout(() => resolve({ ok: true, data: [1,2,3] }), 400));
+      }
+    `;
+    const lob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(lob);
+    import(url).then(async mod => {
+      const res = await mod.getData();
+      document.getElementById('out').textContent = JSON.stringify(res, null, 2);
+    });
+  </script>
+</body>
+</html>

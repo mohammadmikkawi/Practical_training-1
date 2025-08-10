@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> Input Module</title>
+</head>
+<body>
+  <h2>Module to handle user input</h2>
+  <input id="txt" placeholder="type here">
+  <button id="send">Send</button>
+  <pre id="out"></pre>
+
+  <script type="module">
+    const code = `export function capture(el){ return function(){ return el.value; } }`;
+    const lob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(lob);
+    import(url).then(mod => {
+      const el = document.getElementById('txt');
+      const capt = mod.capture(el);
+      document.getElementById('send').addEventListener('click', () => {
+        document.getElementById('out').textContent = 'you typed: ' + capt();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>callCouter</title>
+</head>
+<body>
+  <h2>callCounter(fn)</h2>
+  <button id="do">Do work</button>
+  <p id="count">Called: 0 times</p>
+
+  <script>
+    function callCounter(fn) {
+      let cnt = 0;
+      return function(...args) {
+        cnt++;
+        document.getElementById('count').textContent = 'Called: ' + cnt + ' times';
+        return fn(...args);
+      };
+    }
+    const wrapped = callCounter(() => console.log('work done'));
+    document.getElementById('do').addEventListener('click', () => wrapped());
+  </script>
+</body>
+</html>

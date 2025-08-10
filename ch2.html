@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> Private Variable Closure</title>
+</head>
+<body>
+  <h2> Private Variable via Closure</h2>
+  <p id="display">Name: (none)</p>
+  <input id="input" placeholder="enter name">
+  <button id="setBtn">Set Name</button>
+
+  <script>
+    function createSecret() {
+      let secret = "no-name";
+      return {
+        get: () => secret,
+        set: (v) => { secret = v; }
+      };
+    }
+    const s = createSecret();
+    document.getElementById('setBtn').addEventListener('click', () => {
+      const v = document.getElementById('input').value || "(empty)";
+      s.set(v);
+      document.getElementById('display').textContent = "Name: " + s.get();
+    });
+  </script>
+</body>
+</html>
