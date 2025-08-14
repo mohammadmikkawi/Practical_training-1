@@ -1,0 +1,3 @@
+function executeFunction(fn) {
+    fn();
+}

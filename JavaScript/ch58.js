@@ -1,0 +1,3 @@
+function encodeBase64(str) {
+    return btoa(str);
+}
