@@ -1,0 +1,100 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    margin: 0;
+    padding: 50px 0 0 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+#taskinput {
+    width: 500px;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#taskbutton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff7f50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#taskbutton:hover {
+    background-color: #ff6347;
+}
+
+
+#viewtasks {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 360px;
+}
+
+
+#viewtasks li {
+    background-color: #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: 0.2s;
+}
+
+#viewtasks li:hover {
+    background-color: #f0f0f0;
+}
+
+
+#viewtasks li button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4c4c;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#viewtasks li button:hover {
+    background-color: #ff1f1f;
+}
+
+
+.completed {
+    text-decoration: line-through;
+    color: grey;
+    opacity: 0.7;
+}
