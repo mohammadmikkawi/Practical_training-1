@@ -1,0 +1,3 @@
+Hello from A
+This is file A for testing NodeJS challengess.
+//60

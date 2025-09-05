@@ -1,0 +1,2 @@
+Hello from B
+This is file B for testing NodeJS challenges.
